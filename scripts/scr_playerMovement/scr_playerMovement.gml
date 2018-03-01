@@ -1,32 +1,22 @@
-/* dx = 0;
-dy = 0;
-if (keyboard_check(vk_right) || keyboard_check(ord("D"))){
-	dx = spd;
+/// Will move the player according to whichever direction you are pressing
+
+var dx = 0
+var dy = 0
+if (kb_up()) {
+	dy -= mvmt_speed;
 }
-if (keyboard_check(vk_left)  || keyboard_check(ord("A"))){
-	dx = -1* spd;	
+if (kb_down()) {
+	dy += mvmt_speed;
 }
-if (keyboard_check(vk_down)  || keyboard_check(ord("S"))){
-	dy = spd;
-} 
-if (keyboard_check(vk_up)  || keyboard_check(ord("W"))){
-	dy = -1 * spd;
+if (kb_left()) {
+	dx -= mvmt_speed;
 }
-// Diaganol movement
+if (kb_right()) {
+	dx += mvmt_speed;
+}
 if (dx * dy != 0) {
 	dx = dx/sqrt(2);
 	dy = dy/sqrt(2);
-} */
-
-if (kb_up()) {
-	y -= speed;
 }
-if (kb_down()) {
-	y += speed;
-}
-if (kb_left()) {
-	x -= speed;
-}
-if (kb_right()) {
-	x += speed;
-}
+x = x + dx;
+y = y + dy;
